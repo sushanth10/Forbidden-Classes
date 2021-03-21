@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>The Great Color Guessing Game</title>
+    
 </head>
 <body>
-    <div class="container">The Great <br><span class="title">RGB Color Guessing Game <br></span></div>
+    <div class="container">The Great <br><span class="title"><h1> RGB Color Guessing Game </h1><br></span></div>
     <div class="colordisplay"></div>
     <div>
-        <button class="resetbtn">New Colors</button>
+        <button id="resetbtn">New Colors</button>
         <span id="message">Hello! Welcome to the Game</span>
-        <button class="easy selected">Easy</button>
-        <button class="medium">Medium</button>
-        <button class="hard">Hard</button>
+        <button class="mode selected">Easy</button>
+        <button class="mode">Medium</button>
+        <button class="mode">Hard</button>
     </div>
     
     <div class="container">
@@ -29,5 +30,8 @@
         <span class="square hard"></span>
         <span class="square hard"></span>
     </div>
+
+    
+    <script src="app.js"></script>
 </body>
 </html>
