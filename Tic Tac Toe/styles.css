@@ -1,53 +1,41 @@
-body{
-    background-color: #9d0208;
-}
 
-#profx {
-                /* position: absolute;
-                top:35px;
-                left:75px; */
-                width:200px;
-                height:250px;
-                background-color: beige;
-                opacity: 0.5;
-                font-size: 20px;
-}
-
-#profy {
-                /* position: absolute;
-                top:35px;
-                left:1245px; */
-                width:200px;
-                height:250px;
-                background-color: beige;
-                opacity: 0.5;
-                font-size: 20px;
-}
-
-#notif {
-                /* position: absolute; */
-                left:670px;
-                top:100px;
-                font-size: 40px;
-                font-family: sans-serif;
-}
-
-td{
-                text-align: center;
-                font-size: 24px;
-                border: 3px solid black;
-                width: 100px;
-                height:125px;
-}
-
-#di {
-                /* position: absolute; */
-                top:200px;
-                left:600px;
-                background-color:#d00000;
-                width:300px;
-                height:375px;
-}
-
-
-
+        body {
+            background-color: #e85d04;
+        }
+        
+        .container {
+            width: 320Px;
+            height: 320px;
+            margin: auto;
+            margin-top: 100px;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 50px;
+        }
+        
+        .row {
+            height: 100px;
+        }
+        
+        .border-b {
+            border-bottom: 10px solid black;
+        }
+        
+        .col {
+            height: 100px;
+            width: 100px;
+            float: left;
+            font-size: 100px;
+            text-align: center;
+            line-height: 100px;
+        }
+        
+        .col:hover {
+            background-color: grey;
+        }
+        
+        .border-r {
+            border-right: 10px solid black;
+        }

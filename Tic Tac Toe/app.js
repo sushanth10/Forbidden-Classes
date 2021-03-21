@@ -1,195 +1,91 @@
-var s1 = document.getElementById("play1").value;
-var s2 = document.getElementById("play2").value;
-var player = "X";
 
-function one() {
-    if (document.getElementById("1").innerHTML == "" && player == "X") {
-        document.getElementById("1").innerHTML = "X";
-        player = "O";
-    }
-    else if (document.getElementById("1").innerHTML == "" && player == "O") {
-        document.getElementById("1").innerHTML = "O";
-        player = "X";
-    }
-    win();
-}
+        const ticTacToeGame = new TicTacToeGame();
+        ticTacToeGame.start();
 
-function two() {
-    if (document.getElementById("2").innerHTML == "" && player == "X") {
-        document.getElementById("2").innerHTML = "X";
-        player = "O";
-    }
-    else if (document.getElementById("2").innerHTML == "" && player == "O") {
-        document.getElementById("2").innerHTML = "O";
-        player = "X";
-    }
-    win();
-}
+        function TicTacToeGame() {
+            const board = new Board();
+            const humanPlayer = new HumanePlayer(board);
+            const computerPlayer = new ComputerPlayer(board);
+            var turn = 0;
+            this.start = function() {
+                const config = {
+                    childList: true
+                };
+                const observer = new MutationObserver(() => takeTurn());
+                board.position.forEach((el) => observer.observe(el, config));
+                takeTurn();
+            }
 
-function three() {
-    if (document.getElementById("3").innerHTML == "" && player == "X") {
-        document.getElementById("3").innerHTML = "X";
-        player = "O";
-    }
-    else if (document.getElementById("3").innerHTML == "" && player == "O") {
-        document.getElementById("3").innerHTML = "O";
-        player = "X";
-    }
-    win();
-}
+            function takeTurn() {
+                if (board.checkForWinner()) {
+                    return;
+                }
+                if (turn % 2 === 0) {
+                    humanPlayer.takeTurn();
+                } else {
+                    computerPlayer.takeTurn();
+                }
+                turn++;
+                //console.log("something changed");
+            }
+        }
 
-function four() {
-    if (document.getElementById("4").innerHTML == "" && player == "X") {
-        document.getElementById("4").innerHTML = "X";
-        player = "O";
-    }
-    else if (document.getElementById("4").innerHTML == "" && player == "O") {
-        document.getElementById("4").innerHTML = "O";
-        player = "X";
-    }
-    win();
-}
+        function Board() {
+            this.position = Array.from(document.querySelectorAll('.col'));
+            let winner = false;
+            //0 1 2
+            //3 4 5
+            //6 7 8
+            this.checkForWinner = function() {
+                    const winningCombinations = [
+                        [0, 1, 2],
+                        [3, 4, 5],
+                        [6, 7, 8],
+                        [0, 4, 8],
+                        [0, 3, 6],
+                        [2, 4, 6],
+                        [1, 4, 7],
+                        [2, 5, 8]
+                    ];
+                    const positions = this.position;
+                    winningCombinations.forEach((winningCombo) => {
+                        const pos0InnerText = positions[winningCombo[0]].innerText;
+                        const pos1InnerText = positions[winningCombo[1]].innerText;
+                        const pos2InnerText = positions[winningCombo[2]].innerText;
+                        const isWinningCombo = pos0InnerText !== '' && pos0InnerText === pos1InnerText && pos1InnerText === pos2InnerText;
 
-function five() {
-    if (document.getElementById("5").innerHTML == "" && player == "X") {
-        document.getElementById("5").innerHTML = "X";
-        player = "O";
-    }
-    else if (document.getElementById("5").innerHTML == "" && player == "O") {
-        document.getElementById("5").innerHTML = "O";
-        player = "X";
-    }
-    win();
-}
+                        if (isWinningCombo) {
+                            winner = true;
+                            winningCombo.forEach((index) => {
+                                positions[index].style = "color:blue;"
+                            })
 
-function six() {
-    if (document.getElementById("6").innerHTML == "" && player == "X") {
-        document.getElementById("6").innerHTML = "X";
-        player = "O";
-    }
-    else if (document.getElementById("6").innerHTML == "" && player == "O") {
-        document.getElementById("6").innerHTML = "O";
-        player = "X";
-    }
-    win();
-}
 
-function seven() {
-    if (document.getElementById("7").innerHTML == "" && player == "X") {
-        document.getElementById("7").innerHTML = "X";
-        player = "O";
-    }
-    else if (document.getElementById("7").innerHTML == "" && player == "O") {
-        document.getElementById("7").innerHTML = "O";
-        player = "X";
-    }
-    win();
-}
+                        }
 
-function eight() {
-    if (document.getElementById("8").innerHTML == "" && player == "X") {
-        document.getElementById("8").innerHTML = "X";
-        player = "O";
-    }
-    else if (document.getElementById("8").innerHTML == "" && player == "O") {
-        document.getElementById("8").innerHTML = "O";
-        player = "X";
-    }
-    win();
-}
+                    });
+                    return winner;
+                }
+                //console.log(this.position);
+        }
 
-function nine() {
-    if (document.getElementById("9").innerHTML == "" && player == "X") {
-        document.getElementById("9").innerHTML = "X";
-        player = "O";
-    }
-    else if (document.getElementById("9").innerHTML == "" && player == "O") {
-        document.getElementById("9").innerHTML = "O";
-        player = "X";
-    }
-    win();
-}
+        function HumanePlayer(board) {
+            this.takeTurn = function() {
+                board.position.forEach((el) => el.addEventListener('click', handleTurnTaken));
+                console.log("Humane Player turn");
+            }
 
-function win() {
-    var b1 = document.getElementById("1").innerHTML;
-    var b2 = document.getElementById("2").innerHTML;
-    var b3 = document.getElementById("3").innerHTML;
-    var b4 = document.getElementById("4").innerHTML;
-    var b5 = document.getElementById("5").innerHTML;
-    var b6 = document.getElementById("6").innerHTML;
-    var b7 = document.getElementById("7").innerHTML;
-    var b8 = document.getElementById("8").innerHTML;
-    var b9 = document.getElementById("9").innerHTML;
-    if (b1 === b2 && b1 === b3 && b2 === b3 && b1 !== "" && b2 !== "" && b3 !== "") {
-        if (b1 == "X") {
-            document.getElementById("notif").innerHTML = s1 + " Won!!";
+            function handleTurnTaken(event) {
+                event.target.innerText = "X";
+                board.position.forEach((el) => el.removeEventListener('click', handleTurnTaken));
+            }
         }
-        else {
-            document.getElementById("notif").innerHTML = s2 + " Won!!";
+
+        function ComputerPlayer(board) {
+            this.takeTurn = function() {
+                const availablePosition = board.position.filter((p) => p.innerText === '');
+                const move = Math.floor(Math.random() * availablePosition.length);
+                availablePosition[move].innerText = 'O';
+                //console.log(availablePosition);
+            }
         }
-    }
-    else if (b4 === b5 && b4 === b6 && b5 === b6 && b4 !== "" && b5 !== "" && b6 !== "") {
-        if (b4 == "X") {
-            document.getElementById("notif").innerHTML = s1 + " Won!!";
-        }
-        else {
-            document.getElementById("notif").innerHTML = s2 + " Won!!";
-        }
-    }
-    else if (b7 === b8 && b7 === b9 && b8 === b9 && b7 !== "" && b8 !== "" && b9 !== "") {
-        if (b7 == "X") {
-            document.getElementById("notif").innerHTML = s1 + " Won!!";
-        }
-        else {
-            document.getElementById("notif").innerHTML = s2 + " Won!!";
-        }
-    }
-    else if (b1 === b4 && b1 === b7 && b4 === b7 && b1 !== "" && b4 !== "" && b7 !== "") {
-        if (b1 == "X") {
-            document.getElementById("notif").innerHTML = s1 + " Won!!";
-        }
-        else {
-            document.getElementById("notif").innerHTML = s2 + " Won!!";
-        }
-    }
-    else if (b2 === b5 && b2 === b8 && b5 === b8 && b2 !== "" && b5 !== "" && b8 !== "") {
-        if (b2 == "X") {
-            document.getElementById("notif").innerHTML = s1 + " Won!!";
-        }
-        else {
-            document.getElementById("notif").innerHTML = s2 + " Won!!";
-        }
-    }
-    else if (b3 === b6 && b3 === b9 && b6 === b9 && b3 !== "" && b6 !== "" && b9 !== "") {
-        if (b3 == "X") {
-            document.getElementById("notif").innerHTML = s1 + " Won!!";
-        }
-        else {
-            document.getElementById("notif").innerHTML = s2 + " Won!!";
-        }
-    }
-    else if (b1 === b5 && b1 === b9 && b5 === b9 && b1 !== "" && b5 !== "" && b9 !== "") {
-        if (b1 == "X") {
-            document.getElementById("notif").innerHTML = s1 + " Won!!";
-        }
-        else {
-            document.getElementById("notif").innerHTML = s2 + " Won!!";
-        }
-    }
-    else if (b3 === b5 && b3 === b7 && b5 === b7 && b3 !== "" && b5 !== "" && b7 !== "") {
-        if (b3 == "X") {
-            document.getElementById("notif").innerHTML = s1 + " Won!!";
-        }
-        else {
-            document.getElementById("notif").innerHTML = s2 + " Won!!";
-        }
-    }
-    else if (b7 === b8 && b7 === b9 && b8 === b9 && b7 !== "" && b8 !== "" && b9 !== "") {
-        if (b7 == "X") {
-            document.getElementById("notif").innerHTML = s1 + " Won!!";
-        }
-        else {
-            document.getElementById("notif").innerHTML = s2 + " Won!!";
-        }
-    }
-}

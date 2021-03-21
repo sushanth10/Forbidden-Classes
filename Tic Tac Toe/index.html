@@ -1,41 +1,30 @@
 <html>
-    <head>
-        <title>Tic Tac Toe</title>
-        <link rel="stylesheet" href="styles.css">
-        <script src="app.js"></script>
-    </head>
-    <body>
-        <h1>Tic-Tac-Toe</h1><br>
-        <form>
-        Enter player 1's name: <input type=text id="play1">
-        Enter player 2's name: <input type=text id="play2">
-        <input type=submit value="GO!">
-        </form>
-        <p id="notif"></p>
-        <div id="profx">
-            <p>Player name: </p>
+
+<head>
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Tic Tac Toe</h1>
+        <div class="row border-b">
+            <div class="col border-r"></div>
+            <div class="col border-r"></div>
+            <div class="col"></div>
         </div>
-        <div id="profy">
-            <p>Player name: </p>
+        <div class="row border-b">
+            <div class="col border-r"></div>
+            <div class="col border-r"></div>
+            <div class="col"></div>
         </div>
-        <div id="di">
-            <table>
-            <tr>
-                <td id="1" class="box" onclick="one();"></td>
-                <td id="2" class="box" onclick="two();"></td>
-                <td id="3" class="box" onclick="three();"></td>
-            </tr>
-            <tr>
-                <td id="4" class="box" onclick="four();"></td>
-                <td id="5" class="box" onclick="five();"></td>
-                <td id="6" class="box" onclick="six();"></td>
-            </tr>
-            <tr>
-                <td id="7" class="box" onclick="seven();"></td>
-                <td id="8" class="box" onclick="eight();"></td>
-                <td id="9" class="box" onclick="nine();"></td>
-            </tr>
-            </table>
+        <div class="row">
+            <div class="col border-r"></div>
+            <div class="col border-r"></div>
+            <div class="col"></div>
         </div>
-    </body>
+    </div>
+    <script src="app.js"></script>
+</body>
+
 </html>
