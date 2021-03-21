@@ -13,6 +13,7 @@ p,h2{
 .card {
     display: grid;
     grid-template-rows: max-content 200px 1fr;
+	word-wrap: normal;
 }
 
 .card img {
@@ -26,14 +27,21 @@ button {
 	font-size: 18px;
 	color:black;
 }
+
+/* button:hover{
+	background-color: black;
+	color: red;
+} */
+
 a{
 	text-decoration: underline red;
 }
 
 .container{
 	display: flex;
-	margin: 10%;
+	/* margin-left: 10%; */
 	justify-content: space-evenly;
+	align-items: center;
 }
 
 a{
