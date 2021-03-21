@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--        const ws=new WebSocket("wss://"+location.host+"/")-->
+        <style>
+            td {
+                border: 3px solid black;
+                width: 100px;
+                height: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        Tic Tac Toe: <br>
+        <p id="notif">X</p>
+        <table id="tab" onclick="pick(event)">
+            <tr>
+                <td id="1"></td>
+                <td id="2"></td>
+                <td id="3"></td>
+            </tr>
+            <tr>
+                <td id="4"></td>
+                <td id="5"></td>
+                <td id="6"></td>
+            </tr>
+            <tr>
+                <td id="7"></td>
+                <td id="8"></td>
+                <td id="9"></td>
+            </tr>
+        </table>
+        <script>
+            function pick(event) {
+                var boxid=event.target.id;
+                var box=document.getElementById(boxid);
+                var player=document.getElementById("notif").innerHTML;
+            if(box.innerHTML===" "&&player==="X") {
+                box.innerHTML="X";
+                document.getElementById("notif").innerHTML="Y";
+            }
+            else if(box.innerHTML === " "&&player==="O") {
+                box.innerHTML="O";
+                document.getElementById("notif").innerHTML="X";
+            }
+                result();
+            }
+            function result() {
+                var b1=document.getElementById("1").innerHTML;
+                var b2=document.getElementById("2").innerHTML;
+                var b3=document.getElementById("3").innerHTML;
+                var b4=document.getElementById("4").innerHTML;
+                var b5=document.getElementById("5").innerHTML;
+                var b6=document.getElementById("6").innerHTML;
+                var b7=document.getElementById("7").innerHTML;
+                var b8=document.getElementById("8").innerHTML;
+                var b9=document.getElementById("9").innerHTML;
+                if(b1===b2 && b1===b3 && b2===b3 &&b1!=="" && b2!=="" && b3!==""){
+                    document.getElementById("notif").innerHTML="Victory!";
+                }
+                else if(b4===b5 && b4===b6 && b5===b6 &&b4!=="" && b5!=="" && b6!==""){
+                    document.getElementById("notif").innerHTML="Victory!";
+                }
+                else if(b7===b8 && b7===b9 && b8===b9 &&b7!=="" && b8!=="" && b9!==""){
+                    document.getElementById("notif").innerHTML="Victory!";
+                }
+                else if(b1===b4 && b1===b7 && b4===b7 &&b1!=="" && b4!=="" && b7!==""){
+                    document.getElementById("notif").innerHTML="Victory!";
+                }
+                else if(b2===b5 && b2===b8 && b5===b8 &&b2!=="" && b5!=="" && b8!==""){
+                    document.getElementById("notif").innerHTML="Victory!";
+                }
+                else if(b3===b6 && b3===b9 && b6===b9 &&b3!=="" && b6!=="" && b9!==""){
+                    document.getElementById("notif").innerHTML="Victory!";
+                }
+                if(b1===b5 && b1===b9 && b5===b9 &&b1!=="" && b5!=="" && b9!==""){
+                    document.getElementById("notif").innerHTML="Victory!";
+                }
+                else if(b3===b5 && b3===b7 && b5===b7 &&b3!=="" && b5!=="" && b7!==""){
+                    document.getElementById("notif").innerHTML="Victory!";
+                }
+                else if(b7===b8 && b7===b9 && b8===b9 &&b7!=="" && b8!=="" && b9!==""){
+                    document.getElementById("notif").innerHTML="Victory!";
+                }
+            }
+        </script>
+    </body>
+</html>
