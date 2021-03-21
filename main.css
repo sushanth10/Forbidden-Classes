@@ -35,3 +35,8 @@ a{
 	margin: 10%;
 	justify-content: space-evenly;
 }
+
+a{
+	color: black;
+	width: inherit;
+}
