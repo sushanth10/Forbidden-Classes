@@ -5,7 +5,7 @@ var pickedcolor = pickcolor();
 var colorDisplay = document.getElementById("colordisplay");
 var messageDisplay = document.querySelector("#message");
 var h1 = document.querySelector("h1");
-var resetbtn = document.querySelector("#reset");
+var resetbtn = document.querySelector("#resetbtn");
 var modeButtons = document.querySelectorAll(".mode");
 
 for(let i=0; i<modeButtons.length; i++){
@@ -26,7 +26,7 @@ for(let i=0; i<modeButtons.length; i++){
 } 
 
 function reset(){
-    colors = generateRandomColors(numSquares);
+    colors = generateColors(numSquares);
     pickedcolor = pickcolor();
     colorDisplay.textContent=pickedcolor;
     resetbtn.textContent = "NEW COLORS";
@@ -39,7 +39,7 @@ function reset(){
         }
     } 
     messageDisplay.textContent = " ";
-    h1.style.backgroundColor = "steelblue";
+    h1.style.backgroundColor = "#232323";
 }
 
 resetbtn.addEventListener("click", function(){
@@ -48,8 +48,27 @@ resetbtn.addEventListener("click", function(){
 
 colorDisplay.textContent = pickedcolor;
 
+
 for(let i=0; i<squares.length; i++){
     squares[i].style.backgroundColor = colors[i];
+    squares[i].addEventListener("click", function(){
+        let clickedcolor = this.style.backgroundColor;
+        if(clickedcolor==pickedcolor){
+            messageDisplay.textContent = "YAYY!! YOU WON";
+            changeColors(pickedcolor);
+            h1.style.backgroundColor = clickedcolor;
+            resetbtn.textContent = "Play Again?";
+        } else{
+            this.style.backgroundColor = "#232323";
+            messageDisplay.textContent = "Try Again!!";
+        }
+    });
+}
+
+function changeColors(color){
+    for(var i=0; i<colors.length; i++){
+        squares[i].style.backgroundColor = color;
+    }
 }
 
 function randomColor(){
@@ -67,24 +86,6 @@ function generateColors(n){
     return colors;
 }
 
-for(let i=0; i<squares.length; i++){
-    squares[i].style.backgroundColor = colors[i];
-    squares[i].addEventListener("click", function(){
-        let clickedcolor = this.style.backgroundColor;
-        if(clickedcolor==pickedcolor){
-            messageDisplay.textContent = "YAYY!! YOU WON";
-            changeColors(pickedcolor);
-            
-        }
-    })
-}
-
 function pickcolor(){
-    return colors[Math.floor(Math.random()*squares.length)];
-}
-
-function changeColors(color){
-    for(var i=0; i<colors.length; i++){
-        squares[i].style.backgroundColor = color;
-    }
+    return colors[Math.floor(Math.random()*colors.length)];
 }

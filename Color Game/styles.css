@@ -1,0 +1,22 @@
+body{
+    background: #232323;
+    margin: 0;
+    font-family: 'Merriweather', serif;
+    color: aliceblue;
+}
+
+.square{
+    width: 25%;
+    height: 50px;
+    background: purple;
+    background-color :#232323;
+    display: flex;
+    margin: 5px;
+    justify-content: space-between;
+}
+
+#colordisplay{
+    background-color: black;
+    color: white;
+    font-size: 25px;
+}
