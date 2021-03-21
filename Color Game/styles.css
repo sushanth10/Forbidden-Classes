@@ -46,7 +46,7 @@ h1{
     height: 30px;
     text-align: center;
     color: #03071e;
-    margin: none;
+    margin: 0px;
 }
 
 .selected{
@@ -56,8 +56,11 @@ h1{
 
 #message{
     display: inline-block;
-    width: 20%;
-    color: black;
+    width: 100%;
+    margin: 0px;
+    font-size: 18px;
+    background-color: #dc2f02;
+    color: white;
 }
 
 #colordisplay{
