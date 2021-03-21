@@ -1,22 +1,73 @@
 body{
-    background: #232323;
+    text-align: center;
+    background-color: #03071e;
     margin: 0;
     font-family: 'Merriweather', serif;
-    color: aliceblue;
+    /* color: aliceblue;
+    justify-content: center;
+    text-transform: uppercase; */
 }
 
 .square{
-    width: 25%;
-    height: 50px;
+    width: 30%;
+    padding-bottom: 30%;
     background: purple;
-    background-color :#232323;
-    display: flex;
-    margin: 5px;
+    float: left;
+    background-color :#03071e;
+    /* display: flex; */
+    margin: 1.66%;
     justify-content: space-between;
+    border-radius: 10%;
+    transition: all 0.5s;
+}
+
+h1{
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    line-height: normal;
+    padding: 20px 0;
+    background-color: #6a040f;
+    text-transform: uppercase;
+    text-decoration: wavy;
+    transition: all 0.5s;
+}
+
+#container{
+    display: flex;
+
+}
+
+#stripe{
+    background-color: #9d0208;
 }
 
 #colordisplay{
-    background-color: black;
+    font-size: large;
+    background-color: #03071e;
     color: white;
-    font-size: 25px;
+    font-size: 200%;
+}
+
+#message{
+    display: inline-block;
+}
+
+button{
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    height: 100%;
+    color: white;
+    background-color: #9d0208;
+    font-weight: 600;
+    font-size: inherit;
+    letter-spacing: 2px;
+    transition: all 0.5s;
+    outline-color: white;
+}
+
+button:hover{
+    color: white;
+    background-color: #03071e;
 }

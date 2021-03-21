@@ -39,7 +39,7 @@ function reset(){
         }
     } 
     messageDisplay.textContent = " ";
-    h1.style.backgroundColor = "#232323";
+    h1.style.backgroundColor = "#03071e";
 }
 
 resetbtn.addEventListener("click", function(){
@@ -59,7 +59,7 @@ for(let i=0; i<squares.length; i++){
             h1.style.backgroundColor = clickedcolor;
             resetbtn.textContent = "Play Again?";
         } else{
-            this.style.backgroundColor = "#232323";
+            this.style.backgroundColor = "#6a040f";
             messageDisplay.textContent = "Try Again!!";
         }
     });
