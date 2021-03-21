@@ -2,35 +2,40 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-align: center;
   
 }
 
 section {
-  height: 100vh;
-  background-color:white;/* rgb(39, 41, 68);*/
+  height:100vh;
+  width:100vw;
+  background-color:white;
   font-family: 'Pangolin', cursive;
+  
+  
+  
 }
 
+
 .score {
-  color: black;/*rgb(224, 224, 224);*/
+  color: #370617;
   height: 20vh;
   display: flex;
-  
   justify-content: space-around;
   align-items: center;
-  
+
 }
 .score h2 {
-  font-size: 30vh;
+  font-size: 2vw;
 }
 .score p {
   text-align: center;
-  padding: 10vh;
-  font-size: 8vh;
+  padding: 10px;
+  font-size: 25px;
 }
 
 .intro {
-  color:black;/* rgb(224, 224, 224);*/
+  color: #03071E;
   height: 50vh;
   display: flex;
   flex-direction: column;
@@ -48,9 +53,9 @@ section {
   height: 50px;
   background: none;
   border: none;
-  color: rgb(224, 224, 224);
+  color: white;
   font-size: 20px;
-  background: rgb(45, 117, 96);
+  background:#370617; /*rgb(45, 117, 96); */
   border-radius: 3px;
   cursor: pointer;
   font-family: 'Pangolin', cursive;
@@ -64,49 +69,20 @@ section {
   transition: opacity 0.5s ease 0.5s;
 }
 .winner {
-  color:black; /*rgb(224, 224, 224);*/
+  color: #03071E;/* rgb(224, 224, 224);*/
   text-align: center;
   font-size: 50px;
 }
 
 .hands,
-.options,.score {
+.options {
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
   align-items: center;
 }
-.score{
-  padding-top: 10%;
-}
-.player-score {
-  
-  position: relative;
-  text-align: center;
-  color: black;
-  
-}
-.computer-score {
-  
-  position: relative;
-  text-align: center;
-  color: black;
-}
 
-
-.para1 ,.para2 {
-  position: absolute;
-  top: 10%;
-  left: 45%;
-  
-}
-.para2{
-  transform: rotate(15deg);
-}
 .player-hand {
   transform: rotateY(180deg);
-
-
 }
 
 div.fadeOut {
@@ -179,7 +155,17 @@ div.fadeIn {
   }
 }
 @media (max-width: 500px) {
-  .options , .hands {
-    flex-direction: column;
+  
+  .intro h1{
+    color: #03071E;
   }
+  .options , .hands   {
+    flex-direction: column;
+    color: #03071E;
+    
+  }
+  .score{
+    visibility: hidden;
+  }
+  
 }
